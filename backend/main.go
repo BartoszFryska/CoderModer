@@ -16,6 +16,8 @@ func main() {
 	http.HandleFunc("/execute", handlers.ExecuteJobHandler)
 	http.HandleFunc("/health", handlers.HealthCheckHandler)
 
+	http.HandleFunc("/ws", handlers.WebSocketHandler)
+
 	fmt.Println("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
